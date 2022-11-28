@@ -1,0 +1,27 @@
+{
+    "name": "ibexa/rector",
+    "description": "Ibexa Rector sets",
+    "type": "library",
+    "license": "(GPL-2.0-only or proprietary)",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "rector/rector": "^0.14.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ibexa\\Rector\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.4.x-dev"
+        }
+    },
+    "require-dev": {
+        "ibexa/code-style": "^1.0"
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+        "check-cs": "@fix-cs --dry-run"
+    }
+}
