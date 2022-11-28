@@ -2,6 +2,35 @@
 
 This package contains `rector/rector` sets useful when upgrading Ibexa DXP projects.
 
+## Installation
+
+```
+composer require --dev ibexa/rector
+```
+
+## Usage
+
+1. Create `./rector.php` file in your project, with the following contents:
+    ```php
+    use Rector\Config\RectorConfig;
+
+    return static function (RectorConfig $rectorConfig): void {
+        $rectorConfig->paths([
+            __DIR__ . '/src',
+            __DIR__ . '/tests',
+        ]);
+    
+        // define sets of rules
+        $rectorConfig->sets([
+            __DIR__ . '/vendor/ibexa/rector/src/sets/flysystem-20.php'
+        ]);
+    };
+    ```
+2. Execute Rector
+    ```
+    php ./bin/rector process <directory>
+    ```
+
 ## COPYRIGHT
 
 Copyright (C) 1999-2022 Ibexa AS (formerly eZ Systems AS). All rights reserved.
